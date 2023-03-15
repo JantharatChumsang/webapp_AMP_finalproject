@@ -13,6 +13,8 @@ import numpy as np
 
 #Only need to set these here as we are add controls outside of Hydralit, to customise a run Hydralit!
 st.set_page_config(page_title='antimicrobial peptide',page_icon=":pill:",layout='wide',initial_sidebar_state='auto',)
+container_width = st.get_container_width
+screen_width = st.screen_width
 
 if __name__ == '__main__':
     with open('style2.css') as f:
