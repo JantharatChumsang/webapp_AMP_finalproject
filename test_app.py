@@ -28,7 +28,7 @@ if __name__ == '__main__':
             favicon=":pill:",
             hide_streamlit_markers=hide_st,
             #add a nice banner, this banner has been defined as 5 sections with spacing defined by the banner_spacing array below.
-            use_banner_images=["resources/pig0.png",None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:F36C23;font-size:150%;'>Web Application for Antimicrobial Peptide Prediction</h1><br><center>เว็บแอปพลิเคชันสำหรับการทำนายเพปไทด์ต้านจุลชีพ"},None,"./resources/lock.png"], 
+            use_banner_images=["resources/pig0.png",None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:F36C23;font-size:150%;'>WAAPP: Web Application for Antimicrobial Peptide Prediction</h1><br><center>"},None,"./resources/lock.png"], 
             banner_spacing=[8,30,60,30,4.5],
             navbar_theme=over_theme
         )
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
         #add all application classes
         app.add_app("Predict your peptide", icon="🔍", app=apps.PredictApp(title="Predict your peptide"))
-        app.add_app("How to use web application", icon="❓", app=apps.HowtoApp(title="How to use web application"))
+        app.add_app("How to use", icon="❓", app=apps.HowtoApp(title="How to use"))
         app.add_app("Dashboard", icon="far fa-chart-bar", app=apps.DashbApp(title="Dashboard"))
         app.add_app("Intro", icon="🏆", app=apps.IntroApp(title="About us"))
         app.add_app("Member", icon="👩‍🏫", app=apps.MemberApp(title="Member"))
@@ -60,7 +60,7 @@ if __name__ == '__main__':
             complex_nav = {
                 'Home': ['Home'],
                 'Predict your peptide': ["Predict your peptide"],
-                'How to WebApp': ["How to use web application"],
+                'How to WebApp': ["How to use"],
                 'Dashboard': ['Dashboard'],
                 '🕮 About us': ['Intro',"Member"],
                 'Contact us': ['Contact us']
