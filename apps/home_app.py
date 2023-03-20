@@ -37,7 +37,7 @@ class HomeApp(HydraHeadApp):
                 with right_column:                  
                     #st.text("Welcome to✨")
                     st.title("WAAPP:")
-                    st.title("Web Application for Antimicrobial Peptide Prediction ")
+                    st.subheader("Web Application for Antimicrobial Peptide Prediction ")
                     #st.subheader("เว็บแอปพลิเคชันสำหรับการทำนายเพปไทด์ต้านจุลชีพ")
                     Ideal_title = '<p style="font-family:; color:#31333F; font-size: 20px; ">WAAPP:</p>'
                     # st.write("##")
