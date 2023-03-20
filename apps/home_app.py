@@ -36,12 +36,10 @@ class HomeApp(HydraHeadApp):
                 left_column1,left_column2, right_column,right_column2 = st.columns((0.65,2.5,2.5,0.55))
                 with right_column:                  
                     #st.text("Welcome to✨")
-                    st.title("wAAPP: Web Application for Antimicrobial Peptide Prediction ")
+                    st.title("WAAPP:")
+                    st.title("Web Application for Antimicrobial Peptide Prediction ")
                     #st.subheader("เว็บแอปพลิเคชันสำหรับการทำนายเพปไทด์ต้านจุลชีพ")
                     Ideal_title = '<p style="font-family:; color:#31333F; font-size: 20px; ">WAAPP:</p>'
-                    # st.markdown(Ideal_title, unsafe_allow_html=True)
-                    Ideal_title = '<p style="font-family:; color:#31333F; font-size: 20px; ">Web Application to test the antimicrobial peptide activity against bacteria.</p>'
-                    # st.markdown(Ideal_title, unsafe_allow_html=True)
                     # st.write("##")
                     Ideal_title = '<p style="font-family:; color:#06BBCC; font-size: 18px; ">Click to see photo credits.</p>'
                     st.markdown(Ideal_title, unsafe_allow_html=True)
