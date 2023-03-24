@@ -831,47 +831,49 @@ class PredictApp(HydraHeadApp):
 
                                     final_data = pd.concat([df_user_name_seq, df_use_in_model], axis=1)
                                     final_data = np.round(final_data, decimals = 2)
-                                    html_temp = """
-                                                        <div style="background-color:{};height:{};width:{};">
-                                                        </div>
-                                                        <div style="background-color:#1F3D7C;color:white;padding:10px;border-radius:5px">
-                                                        <div id="head" style="background-color:{};padding:1px;border-radius:'15px';">
-                                                        </div>
-                                                        """
-                                    Ideal_dataf = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 40px; background-color: #1F3D7C; border-radius: 5px; text-align:center;">Out put</p>'
-                                    st.markdown(Ideal_dataf, unsafe_allow_html=True)
-                                    # st.markdown(html_temp.format('white','1px', '50%','#1F3D7C','#FFFFFF'),unsafe_allow_html=True)
-                                    st.dataframe(final_data.style.set_properties(**{'background-color': '#C2DFFF',
-                                                                                            'color': 'black',
-                                                                                            'border-color': '#06BBCC',
-                                                                                            }))
+                                    if len(final_data) != 0:
+                                        html_temp = """
+                                                            <div style="background-color:{};height:{};width:{};">
+                                                            </div>
+                                                            <div style="background-color:#1F3D7C;color:white;padding:10px;border-radius:5px">
+                                                            <div id="head" style="background-color:{};padding:1px;border-radius:'15px';">
+                                                            </div>
+                                                            """
+                                        Ideal_dataf = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 40px; background-color: #1F3D7C; border-radius: 5px; text-align:center;">Out put</p>'
+                                        st.markdown(Ideal_dataf, unsafe_allow_html=True)
+                                    
+                                        # st.markdown(html_temp.format('white','1px', '50%','#1F3D7C','#FFFFFF'),unsafe_allow_html=True)
+                                        st.dataframe(final_data.style.set_properties(**{'background-color': '#C2DFFF',
+                                                                                                'color': 'black',
+                                                                                                'border-color': '#06BBCC',
+                                                                                                }))
                                     
                                     
-                            # #download file -------------------------------------------------------------
-                            with st.container():
-                                left1, left2, centerrr, right1, right2,lasttt = st.columns((2,6,8,8,8,0.3))
-                                with left2:
+                                        # #download file -------------------------------------------------------------
+                                        with st.container():
+                                            left1, left2, centerrr, right1, right2,lasttt = st.columns((8,2,3,5,5,0.3))
+                                            with left1:
+                                                            
+                                                def convert_df(final_data):
+                                                    return final_data.to_csv(index=False).encode('utf-8')
+                                                csv = convert_df(final_data)
+                                                        
+                                                st.download_button(
+                                                            "Press to Download .csv file 📥",
+                                                            csv,
+                                                            "file.csv",
+                                                            "text/csv",
+                                                            key='download-csv'
+                                                            )
+                                                st.write('##')
                                                 
-                                    def convert_df(final_data):
-                                        return final_data.to_csv(index=False).encode('utf-8')
-                                    csv = convert_df(final_data)
-                                            
-                                    st.download_button(
-                                                "Press to Download .csv file 📥",
-                                                csv,
-                                                "file.csv",
-                                                "text/csv",
-                                                key='download-csv'
-                                                )
-                                    st.write('##')
-                                    
-                                    #color of button --------------------------------------------------------
-                                    m = st.markdown("""
-                                    <style>
-                                    div.stButton > button:first-child {
-                                        background-color: #C2DFFF;
-                                    }
-                                    </style>""", unsafe_allow_html=True)
+                                                #color of button --------------------------------------------------------
+                                                m = st.markdown("""
+                                                <style>
+                                                div.stButton > button:first-child {
+                                                    background-color: #C2DFFF;
+                                                }
+                                                </style>""", unsafe_allow_html=True)
 
                                     
                     except:
