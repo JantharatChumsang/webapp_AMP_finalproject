@@ -123,9 +123,30 @@ class PredictApp(HydraHeadApp):
                             # not_amino = ['B','J', 'O', 'U', 'X','Z']
                             list_seq =[]
                             for i in range(len(seq)):
-                                if (('B') in seq[i]) or (('J') in seq[i]) or (('O') in seq[i]) or (('U') in seq[i]) or (('X') in seq[i]) or (('Z') in seq[i]):
-                                    st.write('No')
-                                    st.write(seq[i]) 
+                                if (('B') in seq[i]):
+                                    Ideal_erb = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_erb, unsafe_allow_html=True)
+                                    # st.write(seq[i]) 
+                                if (('J') in seq[i]):
+                                    Ideal_erj = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_erj, unsafe_allow_html=True)
+                                    # st.write(seq[i])
+                                if (('O') in seq[i]):
+                                    Ideal_ero = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_ero, unsafe_allow_html=True)
+                                    # st.write(seq[i])
+                                if (('U') in seq[i]):
+                                    Ideal_eru = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_eru, unsafe_allow_html=True)
+                                    # st.write(seq[i])
+                                if (('X') in seq[i]):
+                                    Ideal_erx = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_erx, unsafe_allow_html=True)
+                                    # st.write(seq[i])
+                                if (('Z') in seq[i]):
+                                    Ideal_erz = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
+                                    st.markdown(Ideal_erz, unsafe_allow_html=True)
+                                    # st.write(seq[i])
                                 else:
                                     list1.append(name_seq[i])
                                     list2.append(seq[i])                              
