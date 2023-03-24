@@ -127,23 +127,23 @@ class PredictApp(HydraHeadApp):
                                     Ideal_erb = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_erb, unsafe_allow_html=True)
                                     # st.write(seq[i]) 
-                                if (('J') in seq[i]):
+                                elif (('J') in seq[i]):
                                     Ideal_erj = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_erj, unsafe_allow_html=True)
                                     # st.write(seq[i])
-                                if (('O') in seq[i]):
+                                elif (('O') in seq[i]):
                                     Ideal_ero = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_ero, unsafe_allow_html=True)
                                     # st.write(seq[i])
-                                if (('U') in seq[i]):
+                                elif (('U') in seq[i]):
                                     Ideal_eru = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_eru, unsafe_allow_html=True)
                                     # st.write(seq[i])
-                                if (('X') in seq[i]):
+                                elif (('X') in seq[i]):
                                     Ideal_erx = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_erx, unsafe_allow_html=True)
                                     # st.write(seq[i])
-                                if (('Z') in seq[i]):
+                                elif (('Z') in seq[i]):
                                     Ideal_erz = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #F75D59; border-radius: 5px;">Please specify the correct peptide according to the FASTA format. \n please in put your peptide</p>'
                                     st.markdown(Ideal_erz, unsafe_allow_html=True)
                                     # st.write(seq[i])
