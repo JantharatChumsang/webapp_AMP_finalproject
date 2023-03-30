@@ -681,9 +681,9 @@ class PredictApp(HydraHeadApp):
                                                         # st.write('Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
                                                         # st.write("gram-"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                     elif pos_ro_nec[i] == 'gram+':
-                                                        st.write("Potential againt Gram + Bacteria:"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
+                                                        st.write("Potential againt Gram + Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
                                                     elif pos_ro_nec[i] == 'gram-':
-                                                        st.write("Potential againt Gram - Bacteria:"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
+                                                        st.write("Potential againt Gram - Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                 elif anti_or_non[i] == 'non antimicrobial':
                                                     # st.markdown('Potential to be AMPs:'+ " 󠀠 󠀠 󠀠 "+'𝑵𝒐❌ 󠀠')
                                                     potential_non = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠Potential to be AMPs:  󠀠 󠀠 󠀠 𝑵𝒐 ❌ 󠀠 </p>'
