@@ -12,7 +12,7 @@ import hydralit_components as hc
 class MemberApp(HydraHeadApp):
 
     def __init__(self, title = 'Member', **kwargs):
-        self.__dict__.update(kwargs)
+        # self.__dict__.update(kwargs)
         self.title = title
 
     def run(self):
