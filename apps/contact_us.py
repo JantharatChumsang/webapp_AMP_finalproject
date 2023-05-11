@@ -33,7 +33,7 @@ class ContactUsAPP(HydraHeadApp):
                         <input type="text" name="name" placeholder="Your name" required>
                         <input type="email" name="email" placeholder="Your email" required>
                         <textarea name="message" placeholder="Your message here"></textarea>
-                        <button type="submit">Send message</button>
+                        <button type="submit">Click here to send message</button>
                     </form>
                     """
                 st.markdown(contact_form, unsafe_allow_html=True)
