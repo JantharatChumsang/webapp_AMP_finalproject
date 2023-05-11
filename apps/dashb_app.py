@@ -12,7 +12,7 @@ class DashbApp(HydraHeadApp):
         # self.delay = delay
 
     def run(self):
-        st.title("Dataset dashboard Interact with dashboard to view dataset details")
+        st.title("Dashboard for dataset")
                 #### import html ####
         
         def st_webpage(page_html,width=2000,height=2000):
