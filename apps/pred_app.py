@@ -54,7 +54,7 @@ class PredictApp(HydraHeadApp):
                 
                 st.write("##")
                 cd1,cd2, cd3 = st.columns((1,4,10))
-                help_input="- Please enter your peptide for prediction. \n- Please enter your peptides for prediction in FASTA format by either pasting them in the textbox or uploading the peptide sequence file. \n-  Note: More than 200 peptides may negatively affect performance."
+                help_input="- Please enter your peptides for prediction in FASTA format by either pasting them in the textbox or uploading the peptide sequence file. \n-  Note: More than 200 peptides may negatively affect performance."
                 Ideala = '<div align="left"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #1F3D7C; border-radius: 5px; text-align:center;">Please enter your peptide or File upload 👇</p>'
                 cd2.markdown(Ideala, unsafe_allow_html=True)
                 cd3.markdown(help_input, unsafe_allow_html=True)
