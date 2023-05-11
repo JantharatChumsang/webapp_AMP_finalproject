@@ -54,7 +54,7 @@ class PredictApp(HydraHeadApp):
                 
                 st.write("##")
                 cd1,cd2, cd3 = st.columns((1,4,10))
-                help_input="- Please enter your peptide for prediction. \n- Please should a single channel be selected for the input of peptides between FASTA text format or FASTA file format. \n- More than 200 peptides should not be inserted as this may cause a delay in prediction."
+                help_input="- Please enter your peptide for prediction. \n- Please enter your peptides for prediction in FASTA format by either pasting them in the textbox or uploading the peptide sequence file. \n-  Note: More than 200 peptides may negatively affect performance."
                 Ideala = '<div align="left"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #1F3D7C; border-radius: 5px; text-align:center;">Please enter your peptide or File upload 👇</p>'
                 cd2.markdown(Ideala, unsafe_allow_html=True)
                 cd3.markdown(help_input, unsafe_allow_html=True)
@@ -109,7 +109,7 @@ class PredictApp(HydraHeadApp):
                         """,
                         unsafe_allow_html=True,
                     )
-                    I_option_anti = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select the range threshold antimicrobial peptide model 👇</p>'
+                    I_option_anti = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select threshold antimicrobial peptide model 👇</p>'
                     st.markdown(I_option_anti, unsafe_allow_html=True)
                     # st.markdown("Select the range threshold antimicrobial peptide model 👇")
                     option_anti = st.selectbox(
@@ -137,7 +137,7 @@ class PredictApp(HydraHeadApp):
                         unsafe_allow_html=True,
                     )
                     # st.markdown("Select the range threshold gram bacteria model 👇")
-                    I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select the range threshold <br>gram bacteria model 👇</p>'
+                    I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select threshold for <br>gram bacteria model 👇</p>'
                     st.markdown(I_option_gram, unsafe_allow_html=True)
                     option_gram = st.selectbox(
                         ' ',["50", "60", "70", "80"])
