@@ -60,17 +60,18 @@ class PredictApp(HydraHeadApp):
                 cd3.markdown(help_input, unsafe_allow_html=True)
                 clol01,clol01, clol02, clol03, clol04 = st.columns((0.5,1.5,9,0.1,0.4))
                 with clol01:
-                    
-                    def load_lottiefile(filepath: str):
-                        with open (filepath,"r") as f:
-                            return json.load(f)
-                    def load_lottieurl(url: str):
-                        r = requests.get(url)
-                        if r.status_code != 200:
-                            return None
-                        return r.json()
-                    lottie2_codingsd = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_urdso8u9.json")
-                    st_lottie(lottie2_codingsd, height=140,  key="codvingq")
+                    st.image('resources/prep.png', width = 190)
+                      
+#                     def load_lottiefile(filepath: str):
+#                         with open (filepath,"r") as f:
+#                             return json.load(f)
+#                     def load_lottieurl(url: str):
+#                         r = requests.get(url)
+#                         if r.status_code != 200:
+#                             return None
+#                         return r.json()
+#                     lottie2_codingsd = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_urdso8u9.json")
+#                     st_lottie(lottie2_codingsd, height=140,  key="codvingq")
                 # cl1, cl2, cl3, cl4 = st.columns((0.60,15,0.009,0.5))
                 
                 # clol02.write("1.Enter your Peptide 👇")                                                                                                                                                                                                                                                                                                                                                    
