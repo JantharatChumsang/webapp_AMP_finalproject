@@ -13,7 +13,7 @@ class HowtoApp(HydraHeadApp):
         st.markdown(Ideal_hp, unsafe_allow_html=True)
         Ideal_1 = '<div align="center"><p style="font-family:; color:#000000; font-size: 20px; background-color: #C2DFFF; border-radius: 5px;">Home page</p>'
         st.markdown(Ideal_1, unsafe_allow_html=True)
-        st.image('resources/webp1.png', width = 1450)
+        st.image('resources/howt1.png', width = 1450)
         st.write('##')
         st.write('##')
         st.write('##')
