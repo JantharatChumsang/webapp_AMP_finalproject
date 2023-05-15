@@ -1,4 +1,4 @@
-from apps.home_app import HomeApp
+# from apps.home_app import HomeApp
 from apps.member_app import MemberApp
 from apps.pred_app import PredictApp
 from apps.Howto_app import HowtoApp
