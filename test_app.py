@@ -35,7 +35,7 @@ if __name__ == '__main__':
         with open('style2.css') as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
         #Home button will be in the middle of the nav list now
-        app.add_app("Home", icon="🏠", app=apps.HomeApp(title='Home'),is_home=True)
+#         app.add_app("Home", icon="🏠", app=apps.HomeApp(title='Home'),is_home=True)
 
         #add all application classes
         app.add_app("Predict your peptide", icon="🔍", app=apps.PredictApp(title="Predict your peptide"))
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # completely optional
         if username:
             complex_nav = {
-                'Home': ['Home'],
+                
                 'Predict your peptide': ["Predict your peptide"],
                 'How to WebApp': ["How to use web application"],
                 'Dashboard': ['Dashboard'],
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     
         else:
             complex_nav = {
-                'Home': ['Home'],
+                'Predict your peptide': ["Predict your peptide"],
             }
 
         #and finally just the entire app and all the children.
