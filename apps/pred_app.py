@@ -35,7 +35,7 @@ class PredictApp(HydraHeadApp):
     def __init__(self, title = 'Predict your peptide', **kwargs):
         # self.__dict__.update(kwargs)
         self.title = title
-
+    
     def run(self):
         with open('style2.css') as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -49,35 +49,35 @@ class PredictApp(HydraHeadApp):
                                                                 <div id="head" style="background-color:{};padding:1px;border-radius:'1px';">
                                                                 </div>
                                                                 """
-                Ideal_datafa = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 30px; background-color: #1F3D7C; border-radius: 2px; text-align:center;"> 🧬 Predict your peptides  󠀠🧬</p>'
-                coss02.markdown(Ideal_datafa, unsafe_allow_html=True)
+                # Ideal_datafa = '<div align="center"><p style="font-sans-serif:; color: white; font-size: 30px; background-color: #1F3D7C; border-radius: 2px; text-align:center;"> 🧬 Predict your peptides  󠀠🧬</p>'
+                # coss02.markdown(Ideal_datafa, unsafe_allow_html=True)
                 
-                st.write("##")
-                cd1,cd2, cd3 = st.columns((1,4,10))
-                help_input="- Please enter your peptides for prediction in FASTA format by either pasting them in the textbox or uploading the peptide sequence file. \n-  Note: More than 200 peptides may negatively affect performance."
+                # st.write("##")
+                
+                cd1,cd2, cd3, cd4 = st.columns((1,3,0.2,5))
+                help_input="- Please enter your peptides for prediction in FASTA format by either pasting them in the textbox below or uploading the peptide sequence file. \n-  Note: More than 200 peptides may negatively affect performance."
                 Ideala = '<div align="left"><p style="font-sans-serif:; color: white; font-size: 20px; background-color: #1F3D7C; border-radius: 5px; text-align:center;">Please enter your peptide or File upload 👇</p>'
                 cd2.markdown(Ideala, unsafe_allow_html=True)
-                cd3.markdown(help_input, unsafe_allow_html=True)
-                clol01,clol01, clol02, clol03, clol04 = st.columns((0.5,1.5,9,0.1,0.4))
-                with clol01:
-                    st.image('resources/prep.png', width = 190)
-                      
-#                     def load_lottiefile(filepath: str):
-#                         with open (filepath,"r") as f:
-#                             return json.load(f)
-#                     def load_lottieurl(url: str):
-#                         r = requests.get(url)
-#                         if r.status_code != 200:
-#                             return None
-#                         return r.json()
-#                     lottie2_codingsd = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_urdso8u9.json")
-#                     st_lottie(lottie2_codingsd, height=140,  key="codvingq")
+                cd4.markdown(help_input, unsafe_allow_html=True)
+                cgg1, cgg2, cgg3, cgg4 = st.columns((1,3,4,2))
+                clol01,clol01, clol02, clol03, clol04 = st.columns((0.5,0.6,9,0.1,0.4))
+                # with clol01:
+                #     st.image('resources/prep.png', width = 190)
+                    
+                    # def load_lottiefile(filepath: str):
+                    #     with open (filepath,"r") as f:
+                    #         return json.load(f)
+                    # def load_lottieurl(url: str):
+                    #     r = requests.get(url)
+                    #     if r.status_code != 200:
+                    #         return None
+                    #     return r.json()
+                    # lottie2_codingsd = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_urdso8u9.json")
+                    # st_lottie(lottie2_codingsd, height=140,  key="codvingq")
                 # cl1, cl2, cl3, cl4 = st.columns((0.60,15,0.009,0.5))
                 
-                # clol02.write("1.Enter your Peptide 👇")                                                                                                                                                                                                                                                                                                                                                    
-                text_seq = clol02.text_area("",help=help_input)
-                clss1, clss2, clss3, clss4,clss5 = st.columns((2.03,5,2,2,0.55))
-                data_file_uploader = clss2.file_uploader('', type=['FASTA','txt'], accept_multiple_files=False)    
+                # clol02.write("1.Enter your Peptide 👇")  
+                data_file_uploader = cd2.file_uploader('', type=['FASTA','txt'], accept_multiple_files=False)    
                 if data_file_uploader is not None:
                     if data_file_uploader:
                         if (data_file_uploader.name[-5:] == ('fasta')) or (data_file_uploader.name[-5:] == ('FASTA')):
@@ -90,11 +90,44 @@ class PredictApp(HydraHeadApp):
                                 # st.write("filename:", data_file.name)
                             data_file = data_file_uploader.getvalue()                                   
                     else:
-                        st.write('your file not correct')   
+                        st.write('your file not correct')
+                elif cd4.button("Example paste input ❓"):
+                    # st.write("For example, input your peptide FASTA format")
+                    # cffs1,cffs2,cffs3 = st.columns((0.96,12,0.65))
+                    with clol02:
+                        Ideal_forexa = '<div align="left"><p style="font-sans-serif:; color: black; font-size: 15px; background-color: white; border-radius: 5px;">For example, input your peptide FASTA format</p>'
+                        st.markdown(Ideal_forexa, unsafe_allow_html=True)                                  
+                        html_temp = """
+                                            <div style="background-color:#D1F0FF;padding:1px">
+                                            <h8 style="color:black;text-align:left;font-size:80%;"><u>Sample1</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br> 
+                                            <br><u>Sample2</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br>>Sequence_name2<br>FPFLLSLIPSAISALKKL </h1>
+                                            </div><br>"""
+                        st.markdown(html_temp,unsafe_allow_html=True)
+
+                text_seq = clol02.text_area("",help=help_input)
+                clss1, clss2, clss3, clss4,clss5,clss6 = st.columns((1.4,1.7,1,4.5,4,1))
+                # data_file_uploader = clss2.file_uploader('', type=['FASTA','txt'], accept_multiple_files=False)    
+                # if data_file_uploader is not None:
+                #     if data_file_uploader:
+                #         if (data_file_uploader.name[-5:] == ('fasta')) or (data_file_uploader.name[-5:] == ('FASTA')):
+                #             data_file_uploader.seek(0)
+                #             data_file_uploader = StringIO(data_file_uploader.getvalue().decode("utf-8"))
+                #             data_file = data_file_uploader.getvalue()                            
+                                
+                #         elif (data_file_uploader.name[-3:] == 'txt') :
+                #             data_file_uploader = StringIO(data_file_uploader.getvalue().decode("utf-8"))
+                #                 # st.write("filename:", data_file.name)
+                #             data_file = data_file_uploader.getvalue()                                   
+                #     else:
+                #         st.write('your file not correct')   
                 
                 #selection threshold 
-                with clss3:
-                    # st.write('Plase select range of threshold model anti/non-microbial peptide👇')
+                with clss2:
+                    st.write('#')
+                    st.write('Selecct cut-off 󠀠  󠀠 󠀠  󠀠 󠀠  󠀠 󠀠  󠀠 󠀠  󠀠 󠀠  󠀠 󠀠 󠀠  󠀠 󠀠 󠀠≥')
+                    st.write('model Probability 󠀠  󠀠 󠀠  󠀠 󠀠 󠀠 󠀠  󠀠 ≥')
+                    # st.write('Select threshold antimicrobial peptide model 👉')
+                    # st.write("Select threshold for gram bacteria model👉")
                     # st.checkbox("Disable selectbox widget", key="disabled")
                     st.markdown(
                         """
@@ -110,17 +143,22 @@ class PredictApp(HydraHeadApp):
                         """,
                         unsafe_allow_html=True,
                     )
-                    I_option_anti = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select threshold antimicrobial peptide model 👇</p>'
-                    st.markdown(I_option_anti, unsafe_allow_html=True)
+                    I_option_anti = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:left;">Select the range threshold antimicrobial peptide model 👉</p>'
+                    # st.markdown(I_option_anti, unsafe_allow_html=True)
                     # st.markdown("Select the range threshold antimicrobial peptide model 👇")
+                with clss3:
+                    st.write('#')
                     option_anti = st.selectbox(
                         '',["50", "60", "70", "80"])
-
+                with clss4:
+                    st.write('#')
+                    st.write('👈 Select threshold antimicrobial peptide model')
+                    st.write("👈 Select threshold for gram bacteria model")
 
                     # st.write('You selected:', option_anti)
                     # st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
                     
-                with clss4:
+                with clss2:
                     # st.checkbox("Disable selectbox widget", key="disabled")
                     st.markdown(
                         """
@@ -137,17 +175,42 @@ class PredictApp(HydraHeadApp):
                         """,
                         unsafe_allow_html=True,
                     )
-                    # st.markdown("Select the range threshold gram bacteria model 👇")
-                    I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select threshold for <br>gram bacteria model 👇</p>'
-                    st.markdown(I_option_gram, unsafe_allow_html=True)
-                    option_gram = st.selectbox(
-                        ' ',["50", "60", "70", "80"])
+                    # st.markdown("Select the range threshold gram bacteria model 👉")
+                    I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:left;"><right>Select threshold for <br>gram bacteria model👉</p>'
+                    # st.markdown(I_option_gram, unsafe_allow_html=True)
+                  
+                    with clss3:
+                        option_gram = st.selectbox(
+                            ' ',["50", "60", "70", "80"])
 
                     # st.write('You selected:', option_gram)
                     # st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-                cl001, ddd,cl002,cl003, cl004 = st.columns((0.95,3.8,2.5,4,16))  
-                if cl002.button("🦠 Predict"):
+                with clss5:
+                    st.image('resources/pred.jpg', width = 250)
+                    cl001, ddd,cl002,cl003, cl004 = st.columns((0.95,3.8,2.5,4,16))
+                    afa1, afa2,afa3, = st.columns((1,4,1))
+                    afa2.markdown(
+                        """
+                        <style>
+                        [data-baseweb="select"] {
+                            margin-top: -50px;
+                            background-color: #1F3D7C;
+                            
+                            color: #353131;
+                            border-radius: 5px;
+                            font-size: 20px;
+                        }
+                        </style>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+                    I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 20px; background-color: pink; border-radius: 20px; text-align:center;"><right> Click here for Predict <br>🡇 </p>'
+                    # afa2.markdown(I_option_gram, unsafe_allow_html=True) 
+
+                # cl001, ddd,cl002,cl003, cl004 = st.columns((0.95,3.8,2.5,4,16))  
+                kkfd1, kkfd2,kkfd3 = st.columns((11,3.5,0.5)) 
+                if kkfd2.button("🦠 Predict"):
                     try:
                         if (text_seq != '') and (data_file_uploader is not None):                                                
                             Sequence = 'two input'
@@ -191,7 +254,8 @@ class PredictApp(HydraHeadApp):
                             for a in range(len(list_clean_text)):
                                 if list_clean_text[a] != '':
                                     if '>' in list_clean_text[a]:
-                                        name_seq.append(list_clean_text[a])
+                                        name_strip = list_clean_text[a].strip('>')
+                                        name_seq.append(name_strip)
                                         i = i+1
                                     else:
                                         if len(seq) == (i):
@@ -642,8 +706,8 @@ class PredictApp(HydraHeadApp):
                                                 cc1,cc2,cc3,cc4,cc5,cc6 = st.columns((4,4,3,3,3,3))
 
                                                 cc1.write("""<style>.font-family: Poppins, sans-serif; {font-size:15px !important;}</style>""", unsafe_allow_html=True)
-                                                cc1.write('👉🏻 Name: '+ df_user_name_seq['Name'][i])
-                                                cc1.write('👉🏻 Sequence: '+ df_user_name_seq['Sequence'][i])
+                                                cc1.write('👉🏻 **Name:** '+ df_user_name_seq['Name'][i])
+                                                cc1.write('👉🏻 **Sequence:** '+ df_user_name_seq['Sequence'][i])
                                                 
                                                 # Predict result form model
                                                 html_temp = """
@@ -669,27 +733,27 @@ class PredictApp(HydraHeadApp):
                                                     potential_anti = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠 Potential to be AMPs: 󠀠 󠀠 󠀠 𝒀𝒆𝒔✔️</p>'
                                                     st.markdown(potential_anti, unsafe_allow_html=True)
                                                     # st.markdown('Potential to be AMPs:'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️')
-                                                    st.write('Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_anti_or_non_list[i]))
+                                                    st.write('**Probability:**'+ " 󠀠 󠀠 󠀠 " + str(probs_anti_or_non_list[i]))
                                                     potential_targ = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠 Target Bacteria</p>'
                                                     st.markdown(potential_targ, unsafe_allow_html=True)
                                                     # st.code('Target Bacteria')
 
                                                     if pos_ro_nec[i] == 'gram+,gram-':
-                                                        st.write('Potential againt Gram + Bacteria:'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+ " 󠀠 󠀠 󠀠 "+ 'Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
+                                                        st.write('**Potential againt Gram + Bacteria:**'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+ " 󠀠 󠀠 󠀠 "+ '**Probability**:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
                                                         # st.write('Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
                                                         # st.write("gram+"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
-                                                        st.write('Potential againt Gram - Bacteria:'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+ 'Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_nec_list[i]))
+                                                        st.write('**Potential againt Gram - Bacteria:**'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+ '**Probability**:'+ " 󠀠 󠀠 󠀠 " + str(probs_nec_list[i]))
                                                         # st.write('Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
                                                         # st.write("gram-"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                     elif pos_ro_nec[i] == 'gram+':
-                                                        st.write("Potential againt Gram + Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
+                                                        st.write("**Potential againt Gram + Bacteria:**"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'**Probability:**'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
                                                     elif pos_ro_nec[i] == 'gram-':
-                                                        st.write("Potential againt Gram - Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
+                                                        st.write("**Potential againt Gram - Bacteria:**"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+'**Probability:**'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                 elif anti_or_non[i] == 'non antimicrobial':
                                                     # st.markdown('Potential to be AMPs:'+ " 󠀠 󠀠 󠀠 "+'𝑵𝒐❌ 󠀠')
                                                     potential_non = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠Potential to be AMPs:  󠀠 󠀠 󠀠 𝑵𝒐 ❌ 󠀠 </p>'
                                                     st.markdown(potential_non, unsafe_allow_html=True)
-                                                    st.write('Probability:'+ " 󠀠 󠀠 󠀠 "+ str(probs_anti_or_non_list[i])) 
+                                                    st.write('**Probability:**'+ " 󠀠 󠀠 󠀠 "+ str(probs_anti_or_non_list[i])) 
                                                     
                                             
                                                 # if pos_ro_nec[i] == 'gram+,gram-':
@@ -716,35 +780,35 @@ class PredictApp(HydraHeadApp):
                                                 mark_Feature = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:center;"> 󠀠 󠀠Feature 󠀠 </p>'
                                                 st.markdown(mark_Feature, unsafe_allow_html=True)
                                                 #show Sequence len-------------------------------
-                                                st.write('🔻 Sequence len: '+ str(len_list[i]), unsafe_allow_html=True)
+                                                st.write('🔹 **Sequence len:** '+ str(len_list[i]), unsafe_allow_html=True)
 
                                                         #show Hydrophobic-------------------------------
-                                                st.write('🔻 Hydrophobic: '+ (hydrophobic_list[i]), unsafe_allow_html=True)
+                                                st.write('🔹 **Hydrophobic:** '+ (hydrophobic_list[i]), unsafe_allow_html=True)
 
                                                         #show Hydrophilic-------------------------------
-                                                st.write('🔻 Hydrophilic: '+ (hydrophilic_list[i]), unsafe_allow_html=True)
+                                                st.write('🔹 **Hydrophilic:** '+ (hydrophilic_list[i]), unsafe_allow_html=True)
                                             
                                             with cc4:
                                                 # st.code('Similarity Comparison')
                                                 mark_Similarity = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:center;"> 󠀠 Similarity Comparison 󠀠 </p>'
                                                 st.markdown(mark_Similarity, unsafe_allow_html=True)
-                                                st.write('Defensin is: '+ str(list_sim_align[0])+"%")    
-                                                st.write('Drosocin is: '+ str(list_sim_align[1])+"%")
-                                                st.write('Spaetzle is: '+ str(list_sim_align[2])+"%")
+                                                st.write('**Defensin is:** '+ str(list_sim_align[0])+"%")    
+                                                st.write('**Drosocin is:** '+ str(list_sim_align[1])+"%")
+                                                st.write('**Spaetzle is:** '+ str(list_sim_align[2])+"%")
                                             with cc5:
                                                 # st.code('Identity Comparison')
                                                 mark_Identity = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:center;"> 󠀠 Identity Comparison 󠀠 </p>'
                                                 st.markdown(mark_Identity, unsafe_allow_html=True)
-                                                st.write('Defensin is: '+ str(list_iden_align[0])+"%")    
-                                                st.write('Drosocin is: '+ str(list_iden_align[1])+"%")
-                                                st.write('Spaetzle is: '+ str(list_iden_align[2])+"%")
+                                                st.write('**Defensin is:** '+ str(list_iden_align[0])+"%")    
+                                                st.write('**Drosocin is:** '+ str(list_iden_align[1])+"%")
+                                                st.write('**Spaetzle is:** '+ str(list_iden_align[2])+"%")
                                             with cc6:
                                                 # st.code('Gaps Comparison')
                                                 mark_Gaps = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:center;"> 󠀠 Gaps Comparison 󠀠 </p>'
                                                 st.markdown(mark_Gaps, unsafe_allow_html=True)
-                                                st.write('Defensin is: '+ str(list_gaps_align[0])+"%")    
-                                                st.write('Drosocin is: '+ str(list_gaps_align[1])+"%")
-                                                st.write('Spaetzle is: '+ str(list_gaps_align[2])+"%")
+                                                st.write('**Defensin is:** '+ str(list_gaps_align[0])+"%")    
+                                                st.write('**Drosocin is:** '+ str(list_gaps_align[1])+"%")
+                                                st.write('**Spaetzle is:** '+ str(list_gaps_align[2])+"%")
 
                                             with open('style2.css') as f:
                                                 st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -757,36 +821,36 @@ class PredictApp(HydraHeadApp):
                                                             st.markdown(Ideal_Feature, unsafe_allow_html=True)
                                                     cooll1, cooll2, cooll3,cooll4,cooll5,cooll6 = st.columns((0.60,6.5,3.5,0.5,3.5,1.1))
                                                     with cooll2:
-                                                        st.write('👉🏻 Name: '+ df_user_name_seq['Name'][i])
-                                                        st.write('👉🏻 Sequence: '+ df_user_name_seq['Sequence'][i])
+                                                        st.write('👉🏻 **Name:** '+ df_user_name_seq['Name'][i])
+                                                        st.write('👉🏻 **Sequence:** '+ df_user_name_seq['Sequence'][i])
                                                         if anti_or_non[i] == 'antimicrobial':
                                                             # st.code('✔️ 󠀠'+ anti_or_non[i])
                                                             # st.write('Probability is:'+ " 󠀠 󠀠 󠀠 "+ str(probs_anti_or_non_list[i]))
                                                             # st.code('Active against')
                                                             potential_anti2 = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠 Potential to be AMPs: 󠀠 󠀠 󠀠 𝒀𝒆𝒔✔️</p>'
                                                             st.markdown(potential_anti2, unsafe_allow_html=True)
-                                                            st.write('A probability threshold of:'+ " 󠀠 󠀠 󠀠 " + option_anti + " 󠀠 󠀠 󠀠 " + " is "+ " 󠀠 󠀠 󠀠 " +str(probs_anti_or_non_list[i]))
+                                                            st.write('**A probability threshold of:**'+ " 󠀠 󠀠 󠀠 " + option_anti + " 󠀠 󠀠 󠀠 " + " **is** "+ " 󠀠 󠀠 󠀠 " +str(probs_anti_or_non_list[i]))
                                                             potential_targ2 = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠 Target Bacteria</p>'
                                                             st.markdown(potential_targ2, unsafe_allow_html=True)
-                                                            st.write('A probability threshold of:'+ " 󠀠 󠀠 󠀠 " + option_gram)
+                                                            st.write('**A probability threshold of:**'+ " 󠀠 󠀠 󠀠 " + option_gram)
 
                                                             if pos_ro_nec[i] == 'gram+,gram-':
-                                                                st.write('Potential againt Gram + Bacteria:'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+ " 󠀠 󠀠 󠀠 "+ 'Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
-                                                                st.write('Potential againt Gram - Bacteria:'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+ 'Probability:'+ " 󠀠 󠀠 󠀠 " + str(probs_nec_list[i]))
+                                                                st.write('**Potential againt Gram + Bacteria:**'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+ " 󠀠 󠀠 󠀠 "+ '**Probability:**'+ " 󠀠 󠀠 󠀠 " + str(probs_poe_list[i]))
+                                                                st.write('**Potential againt Gram - Bacteria:**'+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 ✔️'+ " 󠀠 󠀠 󠀠 "+ '**Probability:**'+ " 󠀠 󠀠 󠀠 " + str(probs_nec_list[i]))
                                                                 # st.write("✔️ 󠀠gram+"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
                                                                 # st.write("✔️ 󠀠gram-"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                             elif pos_ro_nec[i] == 'gram+':
                                                                 # st.write("✔️ 󠀠gram+"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
-                                                                st.write("Potential againt Gram + Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
+                                                                st.write("**Potential againt Gram + Bacteria:**"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+'**Probability:**'+ " 󠀠 󠀠 󠀠 "+str(probs_poe_list[i]))
                                                             elif pos_ro_nec[i] == 'gram-':
                                                                 # st.write("✔️ 󠀠gram-"+ " 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠 󠀠"+'Probability is:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
-                                                                st.write("Potential againt Gram - Bacteria:"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+'Probability:'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
+                                                                st.write("**Potential againt Gram - Bacteria:**"+ " 󠀠 󠀠 󠀠 " + ' 𝒀𝒆𝒔 󠀠✔️'+'**Probability:**'+ " 󠀠 󠀠 󠀠 "+str(probs_nec_list[i]))
                                                         elif anti_or_non[i] == 'non antimicrobial':
                                                             # st.code('❌ 󠀠'+ anti_or_non[i])
                                                             # st.write('Probability is:'+ " 󠀠 󠀠 󠀠 "+ str(probs_anti_or_non_list[i]))
                                                             potential_non2 = '<div align="center"><p style="font-sans-serif:; color:white; font-size: 16px; background-color: #1F3D7C; border: 2px solid #06BBCC; border-radius: 5px; text-align:left;"> 󠀠 󠀠Potential to be AMPs:  󠀠 󠀠 󠀠 𝑵𝒐 ❌ 󠀠 </p>'
                                                             st.markdown(potential_non2, unsafe_allow_html=True)
-                                                            st.write('A probability threshold of:'+ " 󠀠 󠀠 󠀠 " + option_anti + " 󠀠 󠀠 󠀠 " + " is "+ str(probs_anti_or_non_list[i])) 
+                                                            st.write('**A probability threshold of:**'+ " 󠀠 󠀠 󠀠 " + option_anti + " 󠀠 󠀠 󠀠 " + " **is** "+ str(probs_anti_or_non_list[i])) 
                                                         # if anti_or_non[i] == "antimicrobial":
                                                         #     st.subheader('✔️ Your peptide is an antimicrobial peptide.')
                                                         #     st.text('Probability is '+ str((probs_anti_or_non_list)[i]))
@@ -814,28 +878,28 @@ class PredictApp(HydraHeadApp):
                                                     # feature of peptide --------------------------------------------------------------------------------
                                                     with cooll3:
                                                         
-                                                        st.info('🔻 Sequence len: '+ str(len_list[i]))
-                                                        st.info('🔻 Hydrophobic: '+ (hydrophobic_list[i]))
-                                                        st.info('🔻 Hydrophilic: '+ (hydrophilic_list[i]))
-                                                        st.info('🔻 Uncharged: '+ uncharged_list[i])
+                                                        st.info('🔹 **Sequence len:** '+ str(len_list[i]))
+                                                        st.info('🔹 **Hydrophobic:** '+ (hydrophobic_list[i]))
+                                                        st.info('🔹 **Hydrophilic:** '+ (hydrophilic_list[i]))
+                                                        st.info('🔹**Uncharged:** '+ uncharged_list[i])
                                                         #show Positive charge-------------------------------
-                                                        st.info('🔻 Positive charge: '+ positive_charge_list[i])
+                                                        st.info('🔹 **Positive charge:** '+ positive_charge_list[i])
 
                                                     with cooll5:
                                                             #show Negative charge-------------------------------
-                                                        st.info('🔻 Negative charge: '+ Negative_charge_list[i])
+                                                        st.info('🔹 **Negative charge:** '+ Negative_charge_list[i])
 
                                                             #show Molecular Weight-------------------------------
-                                                        st.info('🔻 Molecular Weight: '+ Molecular_Weight_list[i])
+                                                        st.info('🔹 **Molecular Weight:** '+ Molecular_Weight_list[i])
 
                                                             #show Isoelectric Point-------------------------------
-                                                        st.info('🔻 Isoelectric Point: '+ pI_list[i])
+                                                        st.info('🔹 **Isoelectric Point:** '+ pI_list[i])
 
                                                             #show score hydrophilic-------------------------------
-                                                        st.info('🔻 Score hydrophilic: '+ score_hydrophilic_list[i])
+                                                        st.info('🔹 **Score hydrophilic:** '+ score_hydrophilic_list[i])
 
                                                             #show Score hydrophobic-------------------------------
-                                                        st.info('🔻 Score hydrophobic: '+ Score_hydrophobic_list[i])
+                                                        st.info('🔹 **Score hydrophobic:** '+ Score_hydrophobic_list[i])
                                                     # ("Similarity")
                                                     #     st.info('The similarity of your peptide compare %similarity with another peptide.')
                                                 # list_sim_align,  list_iden_align, list_gaps_align = align_sequences(Sequence) list_c_sim, list_matches, list_gaps_al, list_len_al
@@ -846,12 +910,12 @@ class PredictApp(HydraHeadApp):
                                                             Ideal_Feature = '<div align="center"><p style="font-family:; color:#1F3D7C; font-size: 18px; background-color: #C2DFFF;">Similarity Comparison</p>'
                                                             st.markdown(Ideal_Feature, unsafe_allow_html=True)
                                                     
-                                                            st.write('Defensin peptide is: ' + str(list_c_sim[0]) + '/' + str(list_len_al[0]) + '=' + str(list_sim_align[0])+ '%')    
-                                                            st.write('Drosocin peptide is: ' + str(list_c_sim[1]) + '/' + str(list_len_al[1]) + '=' + str(list_sim_align[1])+ '%')
-                                                            st.write('Spaetzle peptide is: ' + str(list_c_sim[2]) + '/' + str(list_len_al[2]) + '=' + str(list_sim_align[2])+ '%')
-                                                            st.write('B-RAF peptide is: ' + str(list_c_sim[3]) + '/' + str(list_len_al[3]) + '=' + str(list_sim_align[3])+ '%')
-                                                            st.write('Hemoglobin peptide is: '+ str(list_c_sim[4]) + '/' + str(list_len_al[4]) + '=' + str(list_sim_align[4])+ '%')
-                                                            st.write('Keratin peptide is: '+ str(list_c_sim[5]) + '/' + str(list_len_al[5]) + '=' + str(list_sim_align[5])+ '%')
+                                                            st.write('**Defensin peptide is:** ' + str(list_c_sim[0]) + '/' + str(list_len_al[0]) + '=' + str(list_sim_align[0])+ '%')    
+                                                            st.write('**Drosocin peptide is:** ' + str(list_c_sim[1]) + '/' + str(list_len_al[1]) + '=' + str(list_sim_align[1])+ '%')
+                                                            st.write('**Spaetzle peptide is:** ' + str(list_c_sim[2]) + '/' + str(list_len_al[2]) + '=' + str(list_sim_align[2])+ '%')
+                                                            st.write('**B-RAF peptide is:** ' + str(list_c_sim[3]) + '/' + str(list_len_al[3]) + '=' + str(list_sim_align[3])+ '%')
+                                                            st.write('**Hemoglobin peptide is:** '+ str(list_c_sim[4]) + '/' + str(list_len_al[4]) + '=' + str(list_sim_align[4])+ '%')
+                                                            st.write('**Keratin peptide is:** '+ str(list_c_sim[5]) + '/' + str(list_len_al[5]) + '=' + str(list_sim_align[5])+ '%')
                                                     # with st.expander("Identity"):
                                                     #     st.info('The identity of your peptide compare identity with another peptide.')
                                                     # list_sim_align,  list_iden_align, list_gaps_align = align_sequences(Sequence) 
@@ -859,12 +923,12 @@ class PredictApp(HydraHeadApp):
                                                             Ideal_Feature = '<div align="center"><p style="font-family:; color:#1F3D7C; font-size: 18px; background-color: #C2DFFF;">Identity Comparison</p>'
                                                             st.markdown(Ideal_Feature, unsafe_allow_html=True)
 
-                                                            st.write('Defensin peptide is: ' + str(list_matches[0]) + '/' + str(list_len_al[0]) + '=' +  str(list_iden_align[0])+ '%')    
-                                                            st.write('Drosocin peptide is: ' + str(list_matches[1]) + '/' + str(list_len_al[1]) + '=' +  str(list_iden_align[1])+ '%')
-                                                            st.write('Spaetzle peptide is: ' + str(list_matches[2]) + '/' + str(list_len_al[2]) + '=' +  str(list_iden_align[2])+ '%')
-                                                            st.write('B-RAF peptide is: ' + str(list_matches[3]) + '/' + str(list_len_al[3]) + '=' +  str(list_iden_align[3])+ '%')
-                                                            st.write('Hemoglobin peptide is: ' + str(list_matches[4]) + '/' + str(list_len_al[4]) + '=' +  str(list_iden_align[4])+ '%')
-                                                            st.write('Keratin peptide is: ' + str(list_matches[5]) + '/' + str(list_len_al[5]) + '=' +  str(list_iden_align[5])+ '%')
+                                                            st.write('**Defensin peptide is:** ' + str(list_matches[0]) + '/' + str(list_len_al[0]) + '=' +  str(list_iden_align[0])+ '%')    
+                                                            st.write('**Drosocin peptide is:** ' + str(list_matches[1]) + '/' + str(list_len_al[1]) + '=' +  str(list_iden_align[1])+ '%')
+                                                            st.write('**Spaetzle peptide is:** ' + str(list_matches[2]) + '/' + str(list_len_al[2]) + '=' +  str(list_iden_align[2])+ '%')
+                                                            st.write('**B-RAF peptide is:** ' + str(list_matches[3]) + '/' + str(list_len_al[3]) + '=' +  str(list_iden_align[3])+ '%')
+                                                            st.write('**Hemoglobin peptide is:** ' + str(list_matches[4]) + '/' + str(list_len_al[4]) + '=' +  str(list_iden_align[4])+ '%')
+                                                            st.write('**Keratin peptide is:** ' + str(list_matches[5]) + '/' + str(list_len_al[5]) + '=' +  str(list_iden_align[5])+ '%')
                                                             
                                                     # with st.expander("Gaps"):
                                                     #     st.info('The gaps of your peptide compare gaps with another peptide.')
@@ -873,12 +937,12 @@ class PredictApp(HydraHeadApp):
                                                             Ideal_Feature = '<div align="center"><p style="font-family:; color:#1F3D7C; font-size: 18px; background-color: #C2DFFF;">Gaps Comparison</p>'
                                                             st.markdown(Ideal_Feature, unsafe_allow_html=True) 
 
-                                                            st.write('Defensin peptide is: ' + str(list_gaps_al[0]) + '/' + str(list_len_al[0]) + '=' +  str(list_gaps_align[0])+ '%')    
-                                                            st.write('Drosocin peptide is: ' + str(list_gaps_al[1]) + '/' + str(list_len_al[1]) + '=' +  str(list_gaps_align[1])+ '%')
-                                                            st.write('Spaetzle peptide is: ' + str(list_gaps_al[2]) + '/' + str(list_len_al[2]) + '=' +  str(list_gaps_align[2])+ '%')
-                                                            st.write('B-RAF peptide is: ' + str(list_gaps_al[3]) + '/' + str(list_len_al[3]) + '=' +  str(list_gaps_align[3])+ '%')
-                                                            st.write('Hemoglobin peptide is: ' + str(list_gaps_al[4]) + '/' + str(list_len_al[4]) + '=' +  str(list_gaps_align[4])+ '%')
-                                                            st.write('Keratin peptide is: ' + str(list_gaps_al[5]) + '/' + str(list_len_al[5]) + '=' +  str(list_gaps_align[5])+ '%')
+                                                            st.write('**Defensin peptide is:** ' + str(list_gaps_al[0]) + '/' + str(list_len_al[0]) + '=' +  str(list_gaps_align[0])+ '%')    
+                                                            st.write('**Drosocin peptide is:** ' + str(list_gaps_al[1]) + '/' + str(list_len_al[1]) + '=' +  str(list_gaps_align[1])+ '%')
+                                                            st.write('**Spaetzle peptide is:** ' + str(list_gaps_al[2]) + '/' + str(list_len_al[2]) + '=' +  str(list_gaps_align[2])+ '%')
+                                                            st.write('**B-RAF peptide is:** ' + str(list_gaps_al[3]) + '/' + str(list_len_al[3]) + '=' +  str(list_gaps_align[3])+ '%')
+                                                            st.write('**Hemoglobin peptide is:** ' + str(list_gaps_al[4]) + '/' + str(list_len_al[4]) + '=' +  str(list_gaps_align[4])+ '%')
+                                                            st.write('**Keratin peptide is:** ' + str(list_gaps_al[5]) + '/' + str(list_len_al[5]) + '=' +  str(list_gaps_align[5])+ '%')
 
                                                     # Graph show amino acid ---------------------------------------------------------------
                                                     c1,c2,c3 = st.columns((4,10,4))
@@ -1020,7 +1084,15 @@ class PredictApp(HydraHeadApp):
                                                                                                     'color': 'black',
                                                                                                     'border-color': '#06BBCC',
                                                                                                     }))                                       
-    
+                                        # options = st.multiselect('Select your column to CSV',
+                                        #                                  ['Name', 'Sequence','Predict_Peptide','Probability_Peptide','Resist_Gram','Probability_Negative',
+                                        #                                   'Probability_Positive','Sequence_len','%Hydrophobic','%Hydrophilic','%Uncharged','%Positive_Charge',
+                                        #                                   '%Negative_Charge','Molecular_Weight','Isoelectric_Point','Score_Hydrophilic','Score_Hydrophobic',
+                                        #                                   'Similarity_Beta-defensin_1','Similarity_Drosocin', 'Similarity_Spaetzle','Similarity_B-RAF',
+                                        #                                   'Similarity_Hemoglobin','Similarity_Keratin'])
+                                    
+                                        # data_options_download = final_data[options]
+                                        # st.write(data_options_download)
                                         # #download file -------------------------------------------------------------
                                         with st.container():
                                             left1, left2, centerrr, right1, right2,lasttt = st.columns((8,2,3,5,5,0.3))
@@ -1062,18 +1134,18 @@ class PredictApp(HydraHeadApp):
                                             </div><br>"""
                         st.markdown(html_temp,unsafe_allow_html=True)
 
-                elif cl003.button("❓ how to paste input"):
-                    # st.write("For example, input your peptide FASTA format")
-                    cffs1,cffs2,cffs3 = st.columns((0.96,12,0.65))
-                    with cffs2:
-                        Ideal_forexa = '<div align="left"><p style="font-sans-serif:; color: black; font-size: 15px; background-color: white; border-radius: 5px;">For example, input your peptide FASTA format</p>'
-                        st.markdown(Ideal_forexa, unsafe_allow_html=True)                                  
-                        html_temp = """
-                                            <div style="background-color:#D1F0FF;padding:1px">
-                                            <h8 style="color:black;text-align:left;font-size:80%;"><u>Sample1</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br> 
-                                            <br><u>Sample2</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br>>Sequence_name2<br>FPFLLSLIPSAISALKKL </h1>
-                                            </div><br>"""
-                        st.markdown(html_temp,unsafe_allow_html=True)
+                # elif cl003.button("❓ how to paste input"):
+                #     # st.write("For example, input your peptide FASTA format")
+                #     cffs1,cffs2,cffs3 = st.columns((0.96,12,0.65))
+                #     with cffs2:
+                #         Ideal_forexa = '<div align="left"><p style="font-sans-serif:; color: black; font-size: 15px; background-color: white; border-radius: 5px;">For example, input your peptide FASTA format</p>'
+                #         st.markdown(Ideal_forexa, unsafe_allow_html=True)                                  
+                #         html_temp = """
+                #                             <div style="background-color:#D1F0FF;padding:1px">
+                #                             <h8 style="color:black;text-align:left;font-size:80%;"><u>Sample1</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br> 
+                #                             <br><u>Sample2</u><br>>Sequence_name1<br>DFASCHTNGGICLPNRCPGHMIQIGICFRPRVKCCRSW<br>>Sequence_name2<br>FPFLLSLIPSAISALKKL </h1>
+                #                             </div><br>"""
+                #         st.markdown(html_temp,unsafe_allow_html=True)
 
             
         
