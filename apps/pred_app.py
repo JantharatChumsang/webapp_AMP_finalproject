@@ -184,10 +184,10 @@ class PredictApp(HydraHeadApp):
                             st.error('Please should a single channel be selected for the input of peptides between FASTA text format or FASTA file format.') 
                         else:
                             # model---------------------------------------------------------------------------
-                            # model_anti_or_non = joblib.load('model_gbc_resize_test.joblib')
+                            model_anti_or_non = joblib.load('model_gbc_resize_test.joblib')
                             # model_angram_negative = joblib.load('model_RF_fulldata_gram-.pkl')
                             # model_angram_post = joblib.load('model_RF_gramPos_resize_test.joblib')
-                            model_anti_or_non = joblib.load('model_GB_anti_nonanti_final.pkl')
+                            # model_anti_or_non = joblib.load('model_GB_anti_nonanti_final.pkl')
                             model_angram_negative = joblib.load('model_knn_fulldata_gram-_new.pkl')
                             model_angram_post = joblib.load('model_GB_fulldata_gram+_final.pkl')
                             
